@@ -40,34 +40,26 @@ const Search_Photo_Video = () => {
         },
     }
     // ------------seach photo--------------
-    const getImageData = () => {
-        SearchData(BASE_URL, SEARCH_PHOTO, InputData, 50)
-            .then((data) => {
-                // console.log(data);
-                setSearchImageData(data.photos);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-    // ---------seach video------------
-
-    const getVideoData = () => {
-        SearchData(BASE_URL, SEARCH_VIDEO, InputData, 50)
-            .then((data) => {
-                // console.log("🚀 ~ file: Search_Photo_Video.js:54 ~ .then ~ data:", data)
-                setSearchVideoData(data.videos);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
 
     const choosePhotoAndVideo = () => {
         if (Change == 0) {
-            getImageData()
+            SearchData(BASE_URL, SEARCH_PHOTO, InputData, 50)
+                .then((data) => {
+                    // console.log(data);
+                    setSearchImageData(data.photos);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         } else {
-            getVideoData()
+            SearchData(BASE_URL, SEARCH_VIDEO, InputData, 50)
+                .then((data) => {
+                    // console.log("🚀 ~ file: Search_Photo_Video.js:54 ~ .then ~ data:", data)
+                    setSearchVideoData(data.videos);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
     }
 
