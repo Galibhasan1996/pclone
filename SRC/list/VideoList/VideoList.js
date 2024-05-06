@@ -32,7 +32,7 @@ const VideoList = () => {
     }
     // ----------get video------------
     const photoData = async () => {
-        getData("https://api.pexels.com/videos/popular?per_page=50")
+        getData("https://api.pexels.com/videos/popular?per_page=50&min_duration=15&max_duration=100")
             .then((data) => {
                 setFlatlistVideoData(data.videos)
             })
